@@ -1,0 +1,19 @@
+<h1>Notifications</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Message</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @notifications.each do |notification| %>
+      <tr>
+        <td><%= notification.message %></td>
+         <td><%= notification.status.capitalize %></td>
+         <td><%= link_to "Mark as Read", my_engine_mark_as_read_notification_path(notification), method: :put %></td>
+       </tr>
+     <% end %>
+   </tbody>
+ </table>

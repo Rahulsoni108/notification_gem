@@ -1,0 +1,23 @@
+<h1>Payments</h1>
+<% flash.each do |type, message| %>
+  <div class="<%= type %>"><%= message %></div>
+<% end %>
+<table>
+  <thead>
+    <tr>
+      <th>Amount</th>
+      <th>Currency</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @payments.each do |payment| %>
+      <tr>
+        <td><%= payment.amount %></td>
+        <td><%= payment.currency %></td>
+        <td><%= payment.status.capitalize %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to "New Payment", my_engine_new_payment_path %>
